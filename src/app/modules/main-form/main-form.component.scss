@@ -1,0 +1,17 @@
+.main-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  &__information {
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    &_desc {
+      margin-left: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
