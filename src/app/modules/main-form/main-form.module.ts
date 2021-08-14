@@ -4,6 +4,7 @@ import { MainFormComponent } from './main-form.component';
 import { MainFromRoutingModule } from './main-form-routing.module';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {SkeletonModule} from 'primeng/skeleton';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -11,6 +12,7 @@ import {SkeletonModule} from 'primeng/skeleton';
     MainFromRoutingModule,
     AutoCompleteModule,
     SkeletonModule,
+    FormsModule,
   ],
   declarations: [MainFormComponent]
 })

@@ -8,7 +8,7 @@ function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 935,
-    height: 600,
+    height: 550,
   })
 
   // and load the index.html of the app.

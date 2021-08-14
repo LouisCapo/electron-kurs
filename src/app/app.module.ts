@@ -6,6 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { environment, ENV_TOKEN } from 'src/environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,12 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     ButtonModule,
     AutoCompleteModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [{
+    provide: ENV_TOKEN,
+    useFactory: () => environment
+  },],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

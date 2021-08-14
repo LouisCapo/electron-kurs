@@ -8,10 +8,37 @@
     height: 100%;
     display: flex;
     &_desc {
+      padding: 15px;
       margin-left: 20px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    &_photo {
+      img {
+        transition: transform 0.4s;
+        height: 20em;
+        width: 30em;
+        border-radius: 5em;
+        object-fit: cover;
+        box-shadow: 0 15px 20px rgba(0,0,0,0.45)
+      }
+      img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.7)
+      }
+    }
+    &_item {
+      display: flex;
+      font-family: Roboto, "Helvetica Neue", sans-serif;
+      font-size: 20px;
+      &-value {
+        margin-left: 15px;
+        font-weight: bold;
+        max-width: 20em;
+      }
     }
   }
 }
