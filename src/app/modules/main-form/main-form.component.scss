@@ -18,3 +18,17 @@
     margin-top: 20px;
   }
 }
+
+.download-dialog {
+  width: 30em;
+  display: flex;
+  flex-direction: column;
+  &__footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    &_item:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+}

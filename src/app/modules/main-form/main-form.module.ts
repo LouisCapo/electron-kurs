@@ -12,6 +12,7 @@ import {TableModule} from 'primeng/table';
 import { PictureTableComponent } from './components/picture-table/picture-table.component';
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {DialogModule} from 'primeng/dialog';
     TableModule,
     ButtonModule,
     DialogModule,
+    InputTextModule,
   ],
   declarations: [MainFormComponent, PictureInfoComponent, PictureTableComponent]
 })

@@ -41,4 +41,15 @@ export class ApiService {
     }
     return this._http.get<{puctures: IPictures[]}>(`${this._environments.apiUrl}/api/pictures/pictures-list`, { params });
   }
+
+  downloadPicturesFile(fileName: string, authorId?: string, storageId?: string) {
+    let params = new HttpParams().set('fileName', fileName);
+    if (authorId) {
+      params = params.set('author', authorId);
+    }
+    if (storageId) {
+      params = params.set('storage', storageId);
+    }
+    return this._http.get(`${this._environments.apiUrl}/api/pictures/filtred-pictures-file`, { responseType: 'blob', params });
+  }
 }

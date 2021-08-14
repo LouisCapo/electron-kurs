@@ -53,7 +53,15 @@
                 [label]="'Очистить фильтры'"
                 icon="pi pi-times"
                 [disabled]="!selectedAuthor && !selectedStorage"
-                (click)="clearFilters()"></button>
+                (click)="clearFilters()">
+        </button>
+        <button pButton 
+                class="filters-tab__header_item p-button-success" 
+                [label]="'Выгрузить в текстовый файл'"
+                icon="pi pi-download"
+                [disabled]="!selectedAuthor && !selectedStorage && !picturesList"
+                (click)="isFileDownloadDialogOpened = !isFileDownloadDialogOpened">
+        </button>
       </div>
       <div *ngIf="picturesList" class="filters-tab__filtred-list">
         <app-picture-table [picturesList]="picturesList"></app-picture-table>
@@ -61,3 +69,25 @@
     </div>
   </p-tabPanel>
 </p-tabView>
+
+<p-dialog header="Загрузка файла" 
+          [(visible)]="isFileDownloadDialogOpened"
+          (onHide)="onDialogHide()">
+  <div class="download-dialog">
+    <span>Имя файла:</span>
+    <input type="text" pInputText [(ngModel)]="fileName"/>
+    <div class="download-dialog__footer">
+      <button pButton
+              class="download-dialog__footer_item"
+              [label]="'Отмена'"
+              (click)="isFileDownloadDialogOpened = !isFileDownloadDialogOpened">
+      </button>
+      <button pButton
+              class="download-dialog__footer_item p-button-success"
+              [disabled]="!fileName"
+              [label]="'Скачать'"
+              (click)="downloadFile()">
+      </button>
+    </div>
+  </div>
+</p-dialog>

@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { IAuthor, IPictures, IStorage, TabEnum } from 'src/app/shared/model/shared-intefaces';
 import { HelperService } from 'src/app/shared/service/helper.service';
 import { ApiService } from './services/api.service';
+import { saveAs } from "file-saver";
 
 @Component({
   selector: 'app-main-form',
@@ -20,6 +21,8 @@ export class MainFormComponent implements OnInit, OnDestroy{
   public storagesList: IStorage[];
   public selectedStorage: IStorage;
   public picturesList: IPictures[];
+  public isFileDownloadDialogOpened = false;
+  public fileName: string;
 
   private _subscription = new Subscription();
 
@@ -76,6 +79,19 @@ export class MainFormComponent implements OnInit, OnDestroy{
     this.picturesList = null;
     this.selectedAuthor = null;
     this.selectedStorage = null;
+  }
+
+  downloadFile() {
+    if (this.fileName) {
+      this._apiService.downloadPicturesFile(this.fileName, this.selectedAuthor?.id, this.selectedStorage?.id).subscribe(res => {
+        saveAs(res, `${this.fileName}.txt`);
+        this.isFileDownloadDialogOpened = false;
+      })
+    }
+  }
+
+  onDialogHide() {
+    this.fileName = null;
   }
 
 }
