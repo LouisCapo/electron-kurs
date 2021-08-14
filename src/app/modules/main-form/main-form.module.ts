@@ -5,6 +5,13 @@ import { MainFromRoutingModule } from './main-form-routing.module';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {SkeletonModule} from 'primeng/skeleton';
 import { FormsModule } from '@angular/forms';
+import {TabViewModule} from 'primeng/tabview';
+import { PictureInfoComponent } from './components/picture-info/picture-info.component';
+import {DropdownModule} from 'primeng/dropdown';
+import {TableModule} from 'primeng/table';
+import { PictureTableComponent } from './components/picture-table/picture-table.component';
+import {ButtonModule} from 'primeng/button';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   imports: [
@@ -13,7 +20,12 @@ import { FormsModule } from '@angular/forms';
     AutoCompleteModule,
     SkeletonModule,
     FormsModule,
+    TabViewModule,
+    DropdownModule,
+    TableModule,
+    ButtonModule,
+    DialogModule,
   ],
-  declarations: [MainFormComponent]
+  declarations: [MainFormComponent, PictureInfoComponent, PictureTableComponent]
 })
 export class MainFormModule { }

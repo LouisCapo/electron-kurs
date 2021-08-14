@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { ENV_TOKEN } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IPictures } from 'src/app/shared/model/shared-intefaces';
+import { IFilters, IPictures } from 'src/app/shared/model/shared-intefaces';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +26,19 @@ export class ApiService {
     return this._http.get<{picture: IPictures}>(`${this._environments.apiUrl}/api/pictures/picture`, { params });
   }
   
+
+  getFilters(): Observable<IFilters> {
+    return this._http.get<IFilters>(`${this._environments.apiUrl}/api/pictures/pictures-filters`);
+  }
+
+  getPicturesList(authorId?: string, storageId?: string): Observable<{puctures: IPictures[]}> {
+    let params = new HttpParams();
+    if (authorId) {
+      params = params.set('author', authorId);
+    }
+    if (storageId) {
+      params = params.set('storage', storageId);
+    }
+    return this._http.get<{puctures: IPictures[]}>(`${this._environments.apiUrl}/api/pictures/pictures-list`, { params });
+  }
 }

@@ -7,8 +7,23 @@ export interface IPictures {
   pictureUrl: string,
 }
 
-interface IAuthor {
+export interface IAuthor {
   id: string,
   firstName: string,
   lasName: string,
+}
+
+export interface IFilters {
+  authors: IAuthor[],
+  storagePlaces: IStorage[],
+}
+
+export interface IStorage {
+  name: string,
+  id: string,
+}
+
+export enum TabEnum {
+  SEARCH = 0,
+  FILTERS = 1,
 }

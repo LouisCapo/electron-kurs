@@ -1,0 +1,38 @@
+<div>
+  <div *ngIf="pictureData else noData" class="main-form__information">
+    <div *ngIf="pictureData.pictureUrl" class="main-form__information_photo">
+      <img [src]="pictureData.pictureUrl">
+    </div>
+    <p-skeleton *ngIf="!pictureData.pictureUrl" width="30em" height="20em" borderRadius="5em"></p-skeleton>
+    <div class="main-form__information_desc">
+      <div class="main-form__information_item">
+        <span>Название:</span>
+        <span class="main-form__information_item-value">{{pictureData.pictureName}}</span>
+      </div>
+      <div class="main-form__information_item">
+        <span>Автор:</span>
+        <span class="main-form__information_item-value">{{pictureData.picturesAuthor.lastName}} {{pictureData.picturesAuthor.firstName}}</span>
+      </div>
+      <div *ngIf="pictureData.storagePlace" class="main-form__information_item">
+        <span>Место хранения:</span>
+        <span class="main-form__information_item-value">{{pictureData.storagePlace}}</span>
+      </div>
+      <div *ngIf="pictureData.creationDate" class="main-form__information_item">
+        <span>Год создания:</span>
+        <span class="main-form__information_item-value">{{pictureData.creationDate | date: 'yyyy'}}</span>
+      </div>
+    </div> 
+  </div>
+</div>
+
+<ng-template #noData>
+  <div class="main-form__information">
+    <p-skeleton width="30em" height="20em" borderRadius="5em"></p-skeleton>
+    <div class="main-form__information_desc">
+      <p-skeleton width="20em" height="2em" borderRadius="5em"></p-skeleton>
+      <p-skeleton width="25em" height="2em" borderRadius="5em"></p-skeleton>
+      <p-skeleton width="10em" height="2em" borderRadius="5em"></p-skeleton>
+      <p-skeleton width="20em" height="2em" borderRadius="5em"></p-skeleton>
+    </div>
+  </div>
+</ng-template>
