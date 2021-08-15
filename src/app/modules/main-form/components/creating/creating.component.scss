@@ -1,0 +1,28 @@
+.creating-tab {
+  display: flex;
+  justify-content: space-between;
+  &__form {
+    display: flex;
+    flex-direction: column;
+    &_item:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+  &__buttons-bar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+.dialog {
+  width: 15em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  &__footer {
+    margin-top: 20px;
+  }
+}

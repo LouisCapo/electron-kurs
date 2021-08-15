@@ -13,6 +13,9 @@ import { PictureTableComponent } from './components/picture-table/picture-table.
 import {ButtonModule} from 'primeng/button';
 import {DialogModule} from 'primeng/dialog';
 import {InputTextModule} from 'primeng/inputtext';
+import {AccordionModule} from 'primeng/accordion';
+import { CreatingComponent } from './components/creating/creating.component';
+import {CalendarModule} from 'primeng/calendar';
 
 @NgModule({
   imports: [
@@ -27,7 +30,9 @@ import {InputTextModule} from 'primeng/inputtext';
     ButtonModule,
     DialogModule,
     InputTextModule,
+    AccordionModule,
+    CalendarModule,
   ],
-  declarations: [MainFormComponent, PictureInfoComponent, PictureTableComponent]
+  declarations: [MainFormComponent, PictureInfoComponent, PictureTableComponent, CreatingComponent]
 })
 export class MainFormModule { }

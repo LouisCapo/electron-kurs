@@ -52,4 +52,16 @@ export class ApiService {
     }
     return this._http.get(`${this._environments.apiUrl}/api/pictures/filtred-pictures-file`, { responseType: 'blob', params });
   }
+
+  createNewPicture(name, authorId, storageId, creationDate, pictureUrl): Observable<{ok: number}> {
+    return this._http.post<{ok: number}>(`${this._environments.apiUrl}/api/pictures/create-picture`, {name, authorId, storageId, creationDate, pictureUrl});
+  }
+
+  createNewAuthor(firstName: string, lastName: string): Observable<{ok: boolean}> {
+    return this._http.post<{ok: boolean}>(`${this._environments.apiUrl}/api/authors/create-author`, {firstName, lastName});
+  }
+
+  createNewStorage(storageName): Observable<{ok: boolean}> {
+    return this._http.post<{ok: boolean}>(`${this._environments.apiUrl}/api/storages/create-storage`, {name: storageName});
+  }
 }

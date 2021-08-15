@@ -68,6 +68,12 @@
       </div>
     </div>
   </p-tabPanel>
+  <p-tabPanel header="Создать">
+    <app-creating [authorsList]="authorsList"
+                  [storagesList]="storagesList"
+                  (onDataUpdate)="updateData()">
+    </app-creating>
+  </p-tabPanel>
 </p-tabView>
 
 <p-dialog header="Загрузка файла" 

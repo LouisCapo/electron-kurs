@@ -59,7 +59,7 @@ export class MainFormComponent implements OnInit, OnDestroy{
     this.picturesList = null;
     this.selectedAuthor = null;
     this.selectedStorage = null;
-    if (event.index === TabEnum.FILTERS) {
+    if (event.index === TabEnum.FILTERS || event.index === TabEnum.CREATING) {
       this._subscription.add(this._apiService.getFilters().subscribe(res => {
         this.authorsList = res.authors;
         this.storagesList = res.storagePlaces;
@@ -92,6 +92,13 @@ export class MainFormComponent implements OnInit, OnDestroy{
 
   onDialogHide() {
     this.fileName = null;
+  }
+
+  updateData() {
+    this._subscription.add(this._apiService.getFilters().subscribe(res => {
+      this.authorsList = res.authors;
+      this.storagesList = res.storagePlaces;
+    }));
   }
 
 }

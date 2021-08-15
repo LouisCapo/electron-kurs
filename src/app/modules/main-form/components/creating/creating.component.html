@@ -1,0 +1,102 @@
+<p-accordion>
+  <p-accordionTab header="Картины">
+    <div class="creating-tab">
+      <div class="creating-tab__form">
+        <input type="text"
+                [(ngModel)]="selectedPictureName"
+                class="creating-tab__form_item" 
+                pInputText
+                [style]="{'width': '25em'}"
+                placeholder="Название картины"/>
+        <p-dropdown placeholder="Автор" 
+                    [(ngModel)]="selectedAuthor"
+                    [style]="{'width': '25em'}"
+                    [options]="authorsList"
+                    optionLabel="lastName"
+                    class="creating-tab__form_item">
+        </p-dropdown>
+        <p-dropdown placeholder="Музей"
+                    [(ngModel)]="selectedStorage"
+                    [style]="{'width': '25em'}" 
+                    [options]="storagesList"
+                    optionLabel="name"
+                    class="creating-tab__form_item" >
+        </p-dropdown>
+        <p-calendar view="month" 
+                    [(ngModel)]="selectedDate"
+                    class="creating-tab__form_item" 
+                    dateFormat="mm/yy" 
+                    [yearNavigator]="true" 
+                    yearRange="0:2030" 
+                    [readonlyInput]="true" 
+                    [style]="{'width': '25em'}"
+                    inputId="monthpicker" 
+                    placeholder="Дата создания">
+        </p-calendar>
+        <input type="text"
+                [(ngModel)]="selectedPicturePhoto"
+                class="creating-tab__form_item" 
+                pInputText
+                [style]="{'width': '25em'}"
+                placeholder="Ссылка на фото"/>
+      </div>
+      <div class="creating-tab__buttons-bar">
+        <button pButton 
+                [label]="'Сохранить'"
+                [disabled]="!isSavePictureButtonActive"
+                (click)="createNewPicture()"></button>
+      </div>
+    </div>
+  </p-accordionTab>
+  <p-accordionTab header="Авторы">
+    <div class="creating-tab">
+      <div class="creating-tab__form">
+        <input type="text"
+              class="creating-tab__form_item" 
+              pInputText
+              [(ngModel)]="selectedAuthorName"
+              [style]="{'width': '25em'}"
+              placeholder="Имя автора"/>
+        <input type="text"
+              class="creating-tab__form_item" 
+              pInputText
+              [(ngModel)]="selectedAuthorLastName"
+              [style]="{'width': '25em'}"
+              placeholder="Фамилия автора"/>
+      </div>
+      <div class="creating-tab__buttons-bar">
+        <button pButton 
+                [label]="'Сохранить'"
+                [disabled]="!isSaveAuthorButtonActive"
+                (click)="createNewAuthor()"></button>
+      </div>
+    </div>
+  </p-accordionTab>
+  <p-accordionTab header="Музеи">
+    <div class="creating-tab">
+      <div class="creating-tab__form">
+        <input type="text"
+              class="creating-tab__form_item" 
+              pInputText
+              [(ngModel)]="selectedStorageName"
+              [style]="{'width': '25em'}"
+              placeholder="Название музея"/>
+      </div>
+      <div class="creating-tab__buttons-bar">
+        <button pButton 
+                [label]="'Сохранить'"
+                [disabled]="!selectedStorageName"
+                (click)="createNewStoragePlace()"></button>
+      </div>
+    </div>  
+  </p-accordionTab>
+</p-accordion>
+
+<p-dialog [(visible)]="onSuccessfulCreation" header="">
+  <div class="dialog">
+    <span>Успешно создано!</span>
+    <div class="dialog__footer">
+      <button pButton [label]="'Ок'" (click)="onSuccessfulCreation = !onSuccessfulCreation"></button>
+    </div>
+  </div>
+</p-dialog>

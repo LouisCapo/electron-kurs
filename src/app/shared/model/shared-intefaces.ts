@@ -26,4 +26,5 @@ export interface IStorage {
 export enum TabEnum {
   SEARCH = 0,
   FILTERS = 1,
+  CREATING = 2,
 }
