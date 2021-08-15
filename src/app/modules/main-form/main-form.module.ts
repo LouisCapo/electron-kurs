@@ -16,6 +16,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {AccordionModule} from 'primeng/accordion';
 import { CreatingComponent } from './components/creating/creating.component';
 import {CalendarModule} from 'primeng/calendar';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   imports: [
@@ -32,7 +34,14 @@ import {CalendarModule} from 'primeng/calendar';
     InputTextModule,
     AccordionModule,
     CalendarModule,
+    NgxChartsModule,
   ],
-  declarations: [MainFormComponent, PictureInfoComponent, PictureTableComponent, CreatingComponent]
+  declarations: [
+    MainFormComponent, 
+    PictureInfoComponent, 
+    PictureTableComponent, 
+    CreatingComponent, 
+    ChartsComponent,
+  ]
 })
 export class MainFormModule { }

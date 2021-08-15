@@ -10,7 +10,7 @@ export interface IPictures {
 export interface IAuthor {
   id: string,
   firstName: string,
-  lasName: string,
+  lastName: string,
 }
 
 export interface IFilters {
@@ -27,4 +27,5 @@ export enum TabEnum {
   SEARCH = 0,
   FILTERS = 1,
   CREATING = 2,
+  CHARTS = 3,
 }

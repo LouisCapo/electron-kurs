@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@angular/core';
 import { ENV_TOKEN } from 'src/environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IFilters, IPictures } from 'src/app/shared/model/shared-intefaces';
+import { IAuthor, IFilters, IPictures } from 'src/app/shared/model/shared-intefaces';
 
 @Injectable({
   providedIn: 'root'
@@ -63,5 +63,10 @@ export class ApiService {
 
   createNewStorage(storageName): Observable<{ok: boolean}> {
     return this._http.post<{ok: boolean}>(`${this._environments.apiUrl}/api/storages/create-storage`, {name: storageName});
+  }
+
+  getPicturesCountByAuthor(storageId: string): Observable<{authors: {author: IAuthor, pictureCount: number}[]}> {
+    const params = new HttpParams().set('storageId', storageId);
+    return this._http.get<{authors: {author: IAuthor, pictureCount: number}[]}>(`${this._environments.apiUrl}/api/storages/pictures-count-by-author`, { params });
   }
 }

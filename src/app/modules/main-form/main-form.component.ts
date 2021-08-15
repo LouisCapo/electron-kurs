@@ -59,7 +59,7 @@ export class MainFormComponent implements OnInit, OnDestroy{
     this.picturesList = null;
     this.selectedAuthor = null;
     this.selectedStorage = null;
-    if (event.index === TabEnum.FILTERS || event.index === TabEnum.CREATING) {
+    if (event.index === TabEnum.FILTERS || event.index === TabEnum.CREATING || event.index === TabEnum.CHARTS) {
       this._subscription.add(this._apiService.getFilters().subscribe(res => {
         this.authorsList = res.authors;
         this.storagesList = res.storagePlaces;

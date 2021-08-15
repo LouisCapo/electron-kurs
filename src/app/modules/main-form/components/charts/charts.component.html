@@ -1,0 +1,18 @@
+<div class="charts-tab">
+  <div class="charts-tab__filters-bar">
+    <p-dropdown [options]="storagesList"
+                [(ngModel)]="selectedStorage"
+                [style]="{'width': '30em'}"
+                optionLabel="name"
+                placeholder="Музей"
+                (onChange)="onStorageSelected()">
+    </p-dropdown>
+  </div>
+  <div *ngIf="chartsData" class="charts-tab__charts">
+    <ngx-charts-pie-chart [results]="chartsData" 
+                          [legend]="true"
+                          [legendTitle]="'Легенда'"
+                          [trimLabels]="false">
+    </ngx-charts-pie-chart>
+  </div>
+</div>

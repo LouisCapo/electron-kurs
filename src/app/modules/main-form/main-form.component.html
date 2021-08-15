@@ -74,6 +74,9 @@
                   (onDataUpdate)="updateData()">
     </app-creating>
   </p-tabPanel>
+  <p-tabPanel header="Диаграммы">
+    <app-charts [storagesList]="storagesList"></app-charts>
+  </p-tabPanel>
 </p-tabView>
 
 <p-dialog header="Загрузка файла" 
